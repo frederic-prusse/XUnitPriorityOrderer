@@ -8,7 +8,7 @@ namespace Tests.XUnitPriorityOrderer
     public class Test5Priority4 : BaseTest
     {
 
-        [Fact, Order(4)]
+        [Fact]
         public void Test()
         {
             Assert.Equal(3, _lastTestPriority);

@@ -9,8 +9,5 @@ namespace XUnitPriorityOrderer
     [TestCaseOrderer(
     CasePriorityOrderer.TypeName, 
     CasePriorityOrderer.AssembyName)]
-    public class BaseTest
-    {
-        protected static int _lastTestPriority = 0;
-    }
+    public class BaseOrderedTest { }
 }

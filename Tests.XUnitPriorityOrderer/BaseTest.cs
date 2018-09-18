@@ -6,10 +6,7 @@ using XUnitPriorityOrderer;
 
 namespace Tests.XUnitPriorityOrderer
 {
-    [TestCaseOrderer(
-    CasePriorityOrderer.TypeName, 
-    CasePriorityOrderer.AssembyName)]
-    public class BaseTest
+    public class BaseTest : BaseOrderedTest
     {
         protected static int _lastTestPriority = 0;
     }
