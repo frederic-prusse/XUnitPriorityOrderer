@@ -7,37 +7,39 @@ using Xunit.Abstractions;
 using Xunit.Sdk;
 using XUnitPriorityOrderer;
 
-public class CollectionPriorityOrderer : ITestCollectionOrderer
+namespace XUnitPriorityOrderer
 {
-    public const string AssembyName = "XUnitPriorityOrderer";
-    public const string TypeName = "CollectionPriorityOrderer";
-    public IEnumerable<ITestCollection> OrderTestCollections(IEnumerable<ITestCollection> testCollections)
+    public class CollectionPriorityOrderer : ITestCollectionOrderer
     {
-        return testCollections.OrderBy(GetOrder);
-    }
+        public const string AssembyName = "XUnitPriorityOrderer";
+        public const string TypeName = "XUnitPriorityOrderer.CollectionPriorityOrderer";
+        public IEnumerable<ITestCollection> OrderTestCollections(IEnumerable<ITestCollection> testCollections)
+        {
+            return testCollections.OrderBy(GetOrder);
+        }
 
-    private static int GetOrder(ITestCollection testCollection)
-    {
-        var i = testCollection.DisplayName.LastIndexOf(' ');
-        if (i <= -1)
-            return 0;
+        private static int GetOrder(ITestCollection testCollection)
+        {
+            var i = testCollection.DisplayName.LastIndexOf(' ');
+            if (i <= -1)
+                return 0;
 
-        var className = testCollection.DisplayName.Substring(i + 1);
-        var type = testCollection
-            .TestAssembly
-            .Assembly
-            .GetTypes(true)
-            .FirstOrDefault(n => n.Name == className);
+            var className = testCollection.DisplayName.Substring(i + 1);
+            var type = testCollection
+                .TestAssembly
+                .Assembly
+                .GetTypes(true)
+                .FirstOrDefault(n => n.Name == className);
 
-        if (type == null)
-            return 0;
+            if (type == null)
+                return 0;
 
-        var attr = (type
-            .GetCustomAttributes(typeof(XUnitPriorityOrderer.OrderAttribute))
-            .FirstOrDefault() as ReflectionAttributeInfo)
-            ?.Attribute as OrderAttribute;
+            var attr = (type
+                .GetCustomAttributes(typeof(XUnitPriorityOrderer.OrderAttribute))
+                .FirstOrDefault() as ReflectionAttributeInfo)
+                ?.Attribute as OrderAttribute;
 
-        return attr?.Priority ?? 0;
+            return attr?.Priority ?? 0;
+        }
     }
 }
-
