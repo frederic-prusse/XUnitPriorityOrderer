@@ -9,7 +9,7 @@ Add/Download the package [XUnitPriorityOrderer](https://www.nuget.org/packages/X
 
 ```dotnet add package XUnitPriorityOrderer --version 1.0.0```
 
-set a base test class adding the required parameters
+set a base test class adding the required parameters (TestCollectionOrderer and TestCaseOrderer) following the sample:
 
 ```c#
 using Xunit;
@@ -27,7 +27,7 @@ namespace MyTestsNameSpace
 }
 ```
 
-And set the order of your tests, for sample
+And set the order of your tests, following the sample
 
 ```c#
 using Xunit;
