@@ -7,7 +7,7 @@ with some minor changes to get the collection order in project's assemblies that
 ## How to use
 Add/Download the package [XUnitPriorityOrderer](https://www.nuget.org/packages/XUnitPriorityOrderer/1.0.0) from [nuget.org](https://www.nuget.org)
 
-```dotnet add package XUnitPriorityOrderer --version 1.0.0```
+```dotnet add package XUnitPriorityOrderer --version 1.0.2```
 
 set a base test class adding the required parameters (TestCollectionOrderer and TestCaseOrderer) following the sample:
 
