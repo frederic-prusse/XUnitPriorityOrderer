@@ -1,6 +1,19 @@
 language: csharp
 mono: none
 dotnet: 2.1.200
-script:
-  - dotnet build
-  - dotnet test ./Tests.XUnitPriorityOrderer/Tests.XUnitPriorityOrderer.csproj
+
+jobs:
+  include:
+    - name: "Build Project"
+      script:
+        - dotnet build
+    - name: "Test"
+      script:
+        - dotnet test ./Tests.XUnitPriorityOrderer/Tests.XUnitPriorityOrderer.csproj
+    - name: "Build Nuget"
+      if: tag IS present
+      script:
+        - cd src/XUnitPriorityOrderer
+        - dotnet publish -c Release
+        - dotnet pack -c Release /p:PackageVersion=$TRAVIS_TAG
+        - dotnet nuget push ./bin/Release/XUnitPriorityOrderer.$TRAVIS_TAG.nupkg --api-key $NUGET_API_KEY --source nuget.org

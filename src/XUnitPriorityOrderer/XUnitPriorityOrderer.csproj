@@ -3,6 +3,22 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <IsPackable>true</IsPackable>
+
+  
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Company></Company>
+    <Authors>Frederic Prüsse</Authors>
+    <PackageProjectUrl>https://github.com/frederic-prusse/XUnitPriorityOrderer</PackageProjectUrl>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageTags></PackageTags>
+    <Copyright>Copyright ©2018</Copyright>
+    <Description>Nuget for ordering test cases and collection with XUnit</Description>
+    <PackageLicenseUrl>https://github.com/frederic-prusse/XUnitPriorityOrderer/blob/master/LICENSE</PackageLicenseUrl>
+    <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryUrl>https://github.com/frederic-prusse/XUnitPriorityOrderer</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
