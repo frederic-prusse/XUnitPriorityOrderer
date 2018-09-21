@@ -10,7 +10,7 @@ jobs:
     - name: "Test"
       script:
         - dotnet test ./Tests.XUnitPriorityOrderer/Tests.XUnitPriorityOrderer.csproj
-    - name: "Build Nuget"
+    - name: "Nuget (publish/pack/release)"
       if: tag IS present
       script:
         - cd src/XUnitPriorityOrderer
