@@ -13,6 +13,4 @@ namespace Tests.XUnitPriorityOrderer
     {
         protected static int _lastTestPriority = 0;
     }
-
-
 }

@@ -7,7 +7,6 @@ namespace Tests.XUnitPriorityOrderer
     [Order(4)]
     public class Test5Priority4 : BaseTest
     {
-
         [Fact]
         public void Test()
         {
