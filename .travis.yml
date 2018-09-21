@@ -1,18 +1,19 @@
 language: csharp
-mono: 
-  - latest
+mono: none
 dotnet: 2.1.200
 
 jobs:
   include:
-    - name: "Build"
+    - name: "Build Project"
       script:
         - dotnet build
     - name: "Test"
       script:
         - dotnet test ./Tests.XUnitPriorityOrderer/Tests.XUnitPriorityOrderer.csproj
-    - name: "Deploy to Nuget.org"
+    - name: "Build Nuget"
       if: tag IS present
       script:
-        - mono nuget.exe pack ./src/XUnitPriorityOrderer/XUnitPriorityOrderer.nuspec -Version $TRAVIS_TAG -Verbosity detailed
-        - mono nuget.exe push XUnitPriorityOrderer.$TRAVIS_TAG.nupkg -ApiKey $NUGET_API_KEY -Verbosity detailed -Source nuget.org
+        - cd src/XUnitPriorityOrderer
+        - dotnet publish -c Release
+        - dotnet pack -c Release /p:PackageVersion=$TRAVIS_TAG
+        - dotnet nuget push ./bin/Release/XUnitPriorityOrderer.$TRAVIS_TAG.nupkg --api-key $NUGET_API_KEY --source nuget.org
