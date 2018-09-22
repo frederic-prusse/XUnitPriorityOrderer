@@ -5,9 +5,9 @@ Based in the [guideline of tomdupont](http://www.tomdupont.net/2016/04/how-to-or
 with some minor changes to get the collection order in project's assemblies that import the nuget
 
 ## How to use
-Add/Download the package [XUnitPriorityOrderer](https://www.nuget.org/packages/XUnitPriorityOrderer/1.0.0) from [nuget.org](https://www.nuget.org)
+Add/Download the package [XUnitPriorityOrderer](https://www.nuget.org/packages/XUnitPriorityOrderer/1.0.3) from [nuget.org](https://www.nuget.org)
 
-```dotnet add package XUnitPriorityOrderer --version 1.0.2```
+```dotnet add package XUnitPriorityOrderer --version 1.0.3```
 
 set a base test class adding the required parameters (TestCollectionOrderer and TestCaseOrderer) following the sample:
 
